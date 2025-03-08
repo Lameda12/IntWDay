@@ -1,0 +1,160 @@
+:root {
+    --primary-purple: #8B008B;
+    --primary-pink: #FF69B4;
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Input Screen Styles */
+.input-screen {
+    position: absolute;
+    z-index: 2;
+}
+
+.input-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.input-card h2 {
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+}
+
+.input-card input {
+    padding: 0.8rem;
+    margin: 1rem 0;
+    width: 100%;
+    border: 2px solid var(--primary-pink);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-card button {
+    background: var(--primary-purple);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.input-card button:hover {
+    transform: scale(1.05);
+}
+
+/* Postcard Styles */
+.postcard {
+    display: none;
+    width: 90%;
+    max-width: 600px;
+    aspect-ratio: 16/9;
+    position: relative;
+}
+
+.card-content {
+    background: var(--card-bg);
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#greeting-text {
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.subtext {
+    color: var(--primary-pink);
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+}
+
+.decoration {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0;
+}
+
+.top-left { top: 20px; left: 20px; animation: fadeRotate 1s 0.7s forwards; }
+.top-right { top: 20px; right: 20px; animation: fadeRotate 1s 0.8s forwards; }
+.bottom-left { bottom: 20px; left: 20px; animation: fadeRotate 1s 0.9s forwards; }
+.bottom-right { bottom: 20px; right: 20px; animation: fadeRotate 1s 1s forwards; }
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeRotate {
+    to {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+/* Particles */
+.particle {
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .postcard {
+        width: 95%;
+    }
+    
+    #greeting-text {
+        font-size: 1.5rem;
+    }
+    
+    .subtext {
+        font-size: 1rem;
+    }
+} 
